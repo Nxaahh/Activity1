@@ -14,6 +14,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
+    // Método que se ejecuta al crear la actividad
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,16 +26,22 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+      //Declaracion del objeto Button
         Button btnNext = findViewById(R.id.btnNext);
 
+        // Define la acción a realizar cuando el botón es presionado
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Crea un Intent para cambiar de actividad a SecondActivity
                 Intent intentSecondActivity = new Intent(MainActivity.this,SecondActivity.class);
+                // Inicia la nueva actividad usando el Intent
                 startActivity(intentSecondActivity);
             }
         });
     }
+    // Método que se ejecuta cuando la actividad entra en el estado "onStart", justo antes de que sea visible para el usuario
     @Override
     protected void onStart(){
 
@@ -42,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
         Log.i("Ciclo de Vida","Ha entrado en el metodo onStart");
     }
+    // Método que se ejecuta cuando la actividad entra en el estado "onResume", justo antes de que el usuario pueda interactuar con ella
     @Override
     protected  void onResume(){
         super.onResume();
@@ -49,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    // Método que se ejecuta cuando la actividad está a punto de ser pausada, normalmente cuando otra actividad toma el foco
     @Override
     protected void onPause(){
         super.onPause();
@@ -57,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    // Método que se ejecuta cuando la actividad ya no es visible para el usuario
     @Override
     protected void onStop(){
         super.onStop();
@@ -64,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    // Método que se ejecuta cuando la actividad está a punto de ser destruida, ya sea porque el usuario la ha cerrado o el sistema la está finalizando para liberar recursos
     @Override
     protected void onDestroy(){
         super.onDestroy();
